@@ -19,11 +19,33 @@
         </span>
       </div>
       <ul class="sm:flex sm:items-center z-[-1] sm:z-auto sm:static absolute bg-white w-full left-0 sm:w-auto sm:py-0 py-4 sm:pl-0 pl-7 sm:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
-        <li class="mx-4 my-6 sm:my-0">
-          <a href="#" class="text-xl hover:text-cyan-500 duration-500">Exam Papers</a>
+        <li class="mx-4 my-6 sm:my-0" >
+          <a href="#" class="text-xl hover:text-cyan-500 duration-500" onclick="submenu(this.parentElement)">Exam Papers</a>
+          <ul aria-expanded="false" class="sm:flex sm:items-center z-[-1] sm:z-auto sm:static absolute bg-white w-full left-0 sm:w-auto sm:py-0 py-4 sm:pl-0 pl-7 sm:opacity-100 opacity-0 top-[-400px]  transition-all ease-in duration-500">
+          <li class="mx-4 my-6 sm:my-0" >
+            <a href="#" >Exam paper 1</a>
+          </li>      
+          <li class="mx-4 my-6 sm:my-0" >
+            <a href="#" >Exam paper 2</a>
+          </li> 
+          <li class="mx-4 my-6 sm:my-0" >
+            <a href="#" class="">Exam paper 3</a>
+          </li>   
+          </ul>
         </li>
-        <li class="mx-4 my-6 sm:my-0">
-          <a href="#" class="text-xl hover:text-cyan-500 duration-500">11+ Papers</a>
+        <li class="mx-4 my-6 sm:my-0" >
+          <a href="#" class="text-xl hover:text-cyan-500 duration-500" onclick="submenu(this.parentElement)" >11+ Papers</a>
+          <ul aria-expanded="false" class="sm:flex sm:items-center z-[-1] sm:z-auto sm:static absolute bg-white w-full left-0 sm:w-auto sm:py-0 py-4 sm:pl-0 pl-7 sm:opacity-100 opacity-0 top-[-400px]  transition-all ease-in duration-500">
+            <li class="mx-4 my-6 sm:my-0" >
+              <a href="#" >11+ paper 1</a>
+            </li>      
+            <li class="mx-4 my-6 sm:my-0" >
+              <a href="#" >11+ paper 2</a>
+            </li> 
+            <li class="mx-4 my-6 sm:my-0" >
+              <a href="#" class="">11+ 3</a>
+            </li>   
+            </ul>
         </li>
         <li class="mx-4 my-6 sm:my-0">
           <a href="#" class="text-xl hover:text-cyan-500 duration-500">13+ Papers</a>
@@ -43,6 +65,14 @@
         let list = document.querySelector('ul');
         icon.name === 'menu' ? (icon.name = "close",list.classList.add('top-[60px]') , list.classList.add('opacity-100')) :( icon.name = "menu" ,list.classList.remove('top-[60px]'),list.classList.remove('opacity-100'))
       }
+
+      function submenu(item){
+        let sublist = item.querySelector('ul')    
+        console.log(item["aria-expanded"]);   
+        item["aria-expanded"] === 'true' ?( item["aria-expanded"] = "false" ,sublist.classList.add('absolute'),sublist.classList.remove('opacity-100'))  :(item["aria-expanded"] = "true", sublist.classList.add('opacity-100'),sublist.classList.remove('absolute'))      
+         
+      }
+      
     </script>
   </body>
 </html>
